@@ -6,9 +6,9 @@ import numpy as np
 class DistancePredictor:
     def __init__(self):
         # Load the regression model and poly transformer
-        with open('regression_model.pkl', 'rb') as model_file:
+        with open('models/regression_model.pkl', 'rb') as model_file:
             self.regression_model = pickle.load(model_file)
-        with open('poly_transformer.pkl', 'rb') as poly_file:
+        with open('models/poly_transformer.pkl', 'rb') as poly_file:
             self.poly_transformer = pickle.load(poly_file)
 
     def predict_distance(self, normalized_pixel_height):

@@ -1,8 +1,8 @@
 from utils.video_capture import capture_frames
 
 def main():
-    # mode = input("Select mode (manual/auto): ").strip().lower()
-    mode = 'manual'
+    mode = input("Select mode (manual/auto): ").strip().lower()
+    # mode = 'manual'
 
     if mode == "manual":
         print("[INFO] Running in MANUAL mode.")

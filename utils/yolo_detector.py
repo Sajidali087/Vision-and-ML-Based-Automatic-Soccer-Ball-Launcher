@@ -4,7 +4,7 @@ from ultralytics import YOLO
 from utils.distance_predictor import DistancePredictor  # Uses the same class
 
 class YoloDetector:
-    def __init__(self, model_path="yolov8n.pt"):
+    def __init__(self, model_path="models/yolov8n.pt"):
         self.model = YOLO(model_path)
         self.distance_predictor = DistancePredictor()
 
