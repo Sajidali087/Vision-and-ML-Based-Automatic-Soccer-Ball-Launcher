@@ -1,8 +1,8 @@
 import cv2
 from utils.arduino_handler import ArduinoHandler
 from utils.pid_controller import PIDController
-import utils.video_capture as video_capture# You must ensure this has a get_frame() function
-from config import PID_KP, PID_KI, PID_KD, INTEGRAL_LIMIT, CENTER_OFFSET, CUSTOM_WIDTH, TEXT_FONT
+import utils.video_capture as capture_frames # You must ensure this has a get_frame() function
+from config import PID_KP, PID_KI, PID_KD, INTEGRAL_LIMIT, CENTER_OFFSET, CUSTOM_WIDTH, TEXT_FONT, CUSTOM_RESOLUTION
 
 class PIDDetector:
     def __init__(self):
@@ -72,7 +72,8 @@ class PIDDetector:
 
     def process_frame(self):
         # Assuming video_capture.get_frame() returns a frame or None
-        frame = video_capture.get_frame()
+        frame = capture_frames()  # Replace with actual frame capture logic
+        frame  = cv2.resize(frame, (CUSTOM_RESOLUTION))  # Resize to custom resolution
         if frame is None:
             print("No frame received from video capture.")
             return
@@ -85,17 +86,17 @@ class PIDDetector:
             self.center_x = width // 2
 
         # Simulated detection: Assume player at center-left (replace this with actual detection logic)
-        detected_center_x = int(width * 0.3)  # Fake player position for testing
+        # detected_center_x = int(width * 0.3)  # Fake player position for testing
 
-        # Call PID and visualization
-        result_frame = self.detect_and_control(frame, detected_center_x, height)
+        # # Call PID and visualization
+        # result_frame = self.detect_and_control(frame, detected_center_x, height)
 
         # Show result
-        cv2.imshow("PID Control Output", result_frame)
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            return False  # Stop loop
+        # # cv2.imshow("PID Control Output", frame)
+        # if cv2.waitKey(1) & 0xFF == ord('q'):
+        #     return False  # Stop loop
 
-        return True  # Continue loop
+        # return True  # Continue loop
 
 if __name__ == "__main__":
     pid_detector = PIDDetector()

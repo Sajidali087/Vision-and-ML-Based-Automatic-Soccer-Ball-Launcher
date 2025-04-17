@@ -37,7 +37,7 @@ def run_manual_mode(frame_generator):
 
             if detected_center_x is not None:
                 frame = pid_detector.detect_and_control(frame, detected_center_x, image_height)
-                frame = draw_and_annotate_frame(frame, detected_center_x, h, distance_in_m, distance_in_ft, angle, scale, fps())
+                frame = draw_and_annotate_frame(frame, detected_center_x, h, distance_in_m, distance_in_ft, angle, fps())
                 gui.update_video_frame_from_detection(frame)
 
             if cv2.waitKey(1) & 0xFF == ord('q'):

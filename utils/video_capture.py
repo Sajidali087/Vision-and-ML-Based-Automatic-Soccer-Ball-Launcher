@@ -1,10 +1,10 @@
 import cv2
 from config import CUSTOM_RESOLUTION, CAMERA_INDEX, SHOW_FRAME_DIMENSIONS,TEXT_FONT
 
-# Global variable to hold frame dimensions
-frame_width = 240
-frame_height = 320
-frame_dimensions = (0, 0)
+# # Global variable to hold frame dimensions
+# frame_width = 240
+# frame_height = 320
+# frame_dimensions = (0, 0)
 
 def capture_frames(device_index=CAMERA_INDEX):
     global frame_dimensions
@@ -26,7 +26,7 @@ def capture_frames(device_index=CAMERA_INDEX):
                 break
 
             # Resize frame to custom resolution from config
-            frame = cv2.resize(frame, CUSTOM_RESOLUTION)
+            frame = cv2.resize(frame, (CUSTOM_RESOLUTION))  # Resize to half the custom resolution
 
             # Draw original and scaled dimensions on frame
             if SHOW_FRAME_DIMENSIONS:

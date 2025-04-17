@@ -11,8 +11,8 @@ def main():
 
     elif mode == "auto":
         print("[INFO] Running in AUTOMATIC mode.")
-        # from auto import run_auto_mode
-        # run_auto_mode(capture_frames())
+        from automatic import run_auto_mode
+        run_auto_mode()
 
     else:
         print("[ERROR] Invalid mode selected.")
