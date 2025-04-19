@@ -2,6 +2,7 @@
 
 import pickle
 import numpy as np
+import shared_state
 
 class DistancePredictor:
     def __init__(self):
@@ -20,4 +21,4 @@ class DistancePredictor:
         pixel_height = np.array([[normalized_pixel_height]])
         pixel_height_poly = self.poly_transformer.transform(pixel_height)
         predicted_distance = self.regression_model.predict(pixel_height_poly)
-        return predicted_distance[0]
+        return predicted_distance[0] # Return the first element of the array  

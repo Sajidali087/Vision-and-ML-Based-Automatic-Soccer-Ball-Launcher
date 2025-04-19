@@ -6,7 +6,7 @@ import cv2
 CAMERA_INDEX = 0  # Default camera index
 USE_CUSTOM_RESOLUTION = False  # Set to True to manually define resolution
 SCALE_RESOLUTION = 0.5  # Scale factor for resolution (0.5 = half resolution)
-CUSTOM_WIDTH = 480
+CUSTOM_WIDTH = 480 
 CUSTOM_HEIGHT = 640
 CUSTOM_RESOLUTION = (CUSTOM_WIDTH, CUSTOM_HEIGHT)
 
@@ -28,7 +28,7 @@ CENTER_OFFSET = 5    # Acceptable margin to consider object in center
 # DISPLAY CONFIGURATION
 # ---------------------
 SHOW_FRAME_DIMENSIONS = True  # Display dimensions on live video feed
-SHOW_FPS = False
+SHOW_FPS = True
 TEXT_FONT =  cv2.FONT_HERSHEY_SIMPLEX
 TEXT_SCALE = 0.7
 TEXT_COLOR = (0, 255, 0)

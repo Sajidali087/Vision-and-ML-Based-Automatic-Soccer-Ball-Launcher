@@ -6,6 +6,7 @@ import UI.angle_meter as angle_meter
 from utils.adjust_orientation import PIDDetector
 from utils.yolo_detector import YoloDetector
 from utils.frame_drawer import draw_and_annotate_frame  # Import the function for drawing and annotating frames
+import shared_state
 
 def run_manual_mode(frame_generator):
     yolo = YoloDetector()
@@ -34,7 +35,7 @@ def run_manual_mode(frame_generator):
                     fps_list.pop(0)
                 avg_fps = sum(fps_list) / len(fps_list)
                 return avg_fps
-
+            shared_state.fps = fps()
             if detected_center_x is not None:
                 frame = pid_detector.detect_and_control(frame, detected_center_x, image_height)
                 frame = draw_and_annotate_frame(frame, detected_center_x, h, distance_in_m, distance_in_ft, angle, fps())
